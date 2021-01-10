@@ -1,0 +1,61 @@
+# This YAML file describes your package. 
+name: CHANGEME
+version: '0.0.0'
+github: "githubuser/CHANGEME"
+license: MIT
+author: "CHANGEME"
+maintainer: "CHANGEME"
+synopsis: "A new Haskeleton package."
+description: "test is a new Haskeleton package."
+category: "Other"
+
+extra-source-files:
+- CHANGELOG.md
+- LICENSE.md
+- package.yaml
+- README.md
+
+ghc-options: -Wall
+
+library:
+  dependencies:
+  - base
+  source-dirs: library
+
+executables:
+  test:
+    source-dirs: executable
+    main: Main.hs
+    dependencies:
+    - base
+    - test
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+
+benchmarks:
+  test-benchmarks:
+    source-dirs: benchmark
+    main: Main.hs
+    dependencies:
+    - base
+    - test
+    - criterion
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
+
+tests:
+  test-test-suite:
+    source-dirs: test-suite
+    main: Main.hs
+    dependencies:
+    - base
+    - test
+    - hspec
+    ghc-options:
+    - -rtsopts
+    - -threaded
+    - -with-rtsopts=-N
