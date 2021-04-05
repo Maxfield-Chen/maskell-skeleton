@@ -8,14 +8,13 @@ let
 in
 pkgs.mkShell {
   buildInputs = with pkgs; [
-    haskell.ormolu
     haskell.cabal-install
     haskell.ghc
     haskell.ghcid
     haskell.ghcide
-    haskell.hlint
+    haskell.ormolu
     haskell.hpack
-    haskell.stylish-haskell
+    haskell.hlint
     pkgs.zlib
   ];
 

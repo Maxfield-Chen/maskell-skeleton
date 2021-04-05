@@ -7,6 +7,8 @@ let
 
   hsPkgs = nixpkgsSuper.haskell.packages.${ghcVersion}.override {
     overrides = self: super: {
+      gdp =
+        self.callPackage ./gdp.nix { };
     };
   };
 
@@ -16,9 +18,6 @@ in
     inherit ghcVersion;
 
     packages = nixpkgsSuper.haskell.packages // {
-      /*statistics =*/
-      /*    let st = pkgs.haskell.packages.${ghcVersion}.statistics;*/
-      /*    in pkgs.haskell.lib.dontCheck st;*/
       "${ghcVersion}" = hsPkgs;
     };
   };

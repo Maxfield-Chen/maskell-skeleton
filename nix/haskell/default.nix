@@ -5,12 +5,12 @@ let
 
   hsPkgs = pkgs.haskell.packages.${ghcVersion};
 
-  pkgDrv = hsPkgs.callCabal2nix "CHANGEME" ../.. {};
+  pkgDrv = hsPkgs.callCabal2nix "<CHANGEME>" ../.. {};
   haskellDeps = pkgDrv.getBuildInputs.haskellBuildInputs;
   ghc = hsPkgs.ghcWithHoogle (_: haskellDeps);
 
 in
 {
   inherit ghc;
-  inherit (hsPkgs) cabal-install hlint ghcide ghcid stylish-haskell ormolu hpack;
+  inherit (hsPkgs) cabal-install ghcide hlint ghcid ormolu hpack;
 }
